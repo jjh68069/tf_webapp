@@ -1,7 +1,5 @@
 provider "aws" {
-  access_key = "AKIAILWZXJQHEUXXFGOA"
-  secret_key = "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"
-  region     = "us-east-1"
+  region     = "us-east-2"
 }
 
 resource "aws_db_instance" "db_server" {
@@ -14,9 +12,9 @@ resource "aws_db_instance" "db_server" {
 }
 
 output "address" { 
-	value = "${aws_db_instance.example.address}"
+	value = "${aws_db_instance.db_server.address}"
  }
 
 output "port" { 
-	value = "${aws_db_instance.example.port}" 
+	value = "${aws_db_instance.db_server.port}" 
 }

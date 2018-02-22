@@ -1,19 +1,11 @@
 provider "aws" {
-  access_key = "AKIAILWZXJQHEUXXFGOA"
-  secret_key = "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"
-  region     = "us-east-1"
+  region = "us-east-1"
 }
 
 resource "aws_launch_configuration" "webserver" {
-  image_id = "ami-2d39803a"
+  image_id = "ami-965e6bf3"
   instance_type = "t2.micro"
   security_groups = ["${aws_security_group.webserver.id}"]
-  
-  user_data = <<-EOF
-              #!/bin/bash
-              echo "Hello, World" > index.html
-              nohup busybox httpd -f -p "${var.server_port}" &
-              EOF
   
   lifecycle {
     create_before_destroy = true
