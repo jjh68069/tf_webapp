@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-east-1"
-}
-
 resource "aws_launch_configuration" "webserver" {
   image_id = "ami-965e6bf3"
   instance_type = "t2.micro"
